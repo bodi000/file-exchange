@@ -154,7 +154,7 @@ class FileConnection(object):
         return True
 
     @open_and_close_connection
-    def get(self, filepath, filename):
+    def get_file(self, filepath, filename):
         if not filepath: filepath = ''
         if self.is_('ftp') or self.is_('sftp'):
             outfile = TemporaryFile('w+b')

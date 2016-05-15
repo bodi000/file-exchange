@@ -26,7 +26,7 @@
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',
     'description': """
-Abstract tasks which can be inherited to create automaticaly task for an object.
+Abstract tasks which can be inherited to create automatically task for an object.
     For instance automatic import tasks for connector with external application.
 """,
     'author': 'Akretion',
@@ -35,7 +35,7 @@ Abstract tasks which can be inherited to create automaticaly task for an object.
                 ],
     'demo': [],
     'data': [
-        'abstrack_task_view.xml',
+        'abstract_task_view.xml',
         'security/ir.model.access.csv',
         ],
     'installable': True,

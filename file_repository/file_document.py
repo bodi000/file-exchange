@@ -26,7 +26,7 @@ from openerp.addons.file_autotask_rel.file_document import add_task
 from tempfile import TemporaryFile
 import base64
 
-add_task('repository.task')
+add_task('file.repository.task')
 
 
 class FileDocument(orm.Model):

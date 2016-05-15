@@ -10,9 +10,9 @@
 ['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
     </record>
 
-    <record id="repository_task_comp_rule" model="ir.rule">
+    <record id="file_repository_task_comp_rule" model="ir.rule">
       <field name="name">Repository task multi-company</field>
-      <field name="model_id" ref="model_repository_task"/>
+      <field name="model_id" ref="model_file_repository_task"/>
       <field name="global" eval="True"/>
       <field name="domain_force">
 ['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>

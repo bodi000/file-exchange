@@ -59,7 +59,7 @@ class automatic_task(orm.Model):
     def _run_all_task_for_cron(self, cr, uid, cron_id, context=None):
         for name, model in self.pool.models.iteritems():
             if model._inherits.get('automatic.task') == 'automatic_task_id' \
-               and name != 'abstrack.task':
+               and name != 'abstract.task':
                 task_ids = model.search(cr, uid,
                                         [('cron_ids', 'in', [cron_id])],
                                         context=context)
@@ -68,8 +68,8 @@ class automatic_task(orm.Model):
 
 
 class abstract_task(orm.AbstractModel):
-    _name = "abstrack.task"
-    _description = "Abstrack Task"
+    _name = "abstract.task"
+    _description = "Abstract Task"
     _inherits = {'automatic.task': 'automatic_task_id'}
 
     _columns ={

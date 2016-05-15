@@ -59,7 +59,7 @@ class FileRepository(orm.Model):
             required=True),
         'port': fields.integer('Port'),
         'task_ids': fields.one2many(
-            'repository.task',
+            'file.repository.task',
             'repository_id',
             string="Tasks"),
     }
@@ -90,9 +90,9 @@ class FileRepository(orm.Model):
 
 
 class RepositoryTask(orm.Model):
-    _name = 'repository.task'
+    _name = 'file.repository.task'
     _description = 'Repository Task'
-    _inherit = 'abstrack.task'
+    _inherit = 'abstract.task'
 
     _columns = {
         'name': fields.char('Name', size=64),
@@ -124,7 +124,7 @@ class RepositoryTask(orm.Model):
     }
 
     _defaults = {
-        'company_id': lambda s, cr, uid, c: s.pool['res.company']._company_default_get(cr, uid, 'repository.task', context=c),
+        'company_id': lambda s, cr, uid, c: s.pool['res.company']._company_default_get(cr, uid, 'file.repository.task', context=c),
     }
 
     def prepare_document_vals(self, cr, uid, task, file_name, datas,
@@ -148,7 +148,7 @@ class RepositoryTask(orm.Model):
     def import_one_document(self, cr, uid, connection, task, file_name,
                             folder_path, context=None):
         document_obj = self.pool['file.document']
-        file_toimport = connection.get(folder_path, file_name)
+        file_toimport = connection.get_file(folder_path, file_name)
         datas = file_toimport.read()
         datas_encoded = base64.encodestring(datas)
         vals = self.prepare_document_vals(cr, uid, task, file_name,

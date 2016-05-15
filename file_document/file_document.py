@@ -30,7 +30,6 @@ _logger = logging.getLogger(__name__)
 # name of the models usable by file.document
 available_tasks = []
 
-
 def add_task(name):
     if not name in available_tasks:
         available_tasks.append(name)

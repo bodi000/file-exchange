@@ -10,9 +10,9 @@
 <openerp>
     <data>
 
-<record id="view_repository_task_form" model="ir.ui.view">
-    <field name="name">repository.task.view_form</field>
-    <field name="model">repository.task</field>
+<record id="view_file_repository_task_form" model="ir.ui.view">
+    <field name="name">file.repository.task.view_form</field>
+    <field name="model">file.repository.task</field>
     <field name="arch" type="xml">
         <form string="Task" version="7.0">
             <group name="main" cols="4" >
@@ -20,14 +20,14 @@
                     <field name="name"/>
                     <field name="direction"/>
                     <field name="type"
-                           help="Type is needed for import task to determine how to import datas.
+                           help="Type is needed for import task to determine how to import data.
 For 'Export' direction, choose Export value"/>
                     <field name="file_name"/>
                     <field name="folder"/>
                 </group>
                 <group name="right" cols="2">
                     <field name="archive_folder"
-                           attrs="{'invisible':[('direction', '!=', 'in')]}"/>
+                            attrs="{'invisible':[('direction', '!=', 'in')]}"/>
                     <field name="last_exe_date"/>
                     <field name="active"/>
                     <field name="company_id" groups="base.group_multi_company"/>
@@ -43,9 +43,9 @@ For 'Export' direction, choose Export value"/>
     </field>
 </record>
 
-<record id="view_repository_task_tree" model="ir.ui.view">
-    <field name="name">repository.task.view_tree</field>
-    <field name="model">repository.task</field>
+<record id="view_file_repository_task_tree" model="ir.ui.view">
+    <field name="name">file.repository.task.view_tree</field>
+    <field name="model">file.repository.task</field>
     <field name="arch" type="xml">
         <tree string="Tasks" version="7.0">
             <field name="name"/>
@@ -53,6 +53,7 @@ For 'Export' direction, choose Export value"/>
             <field name="type"/>
             <field name="file_name"/>
             <field name="folder"/>
+            <field name="last_exe_date"/>
             <field name="active"/>
             <field name="company_id" groups="base.group_multi_company"/>
         </tree>
